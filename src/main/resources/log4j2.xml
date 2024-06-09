@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout disableAnsi="false" pattern="%d{HH:mm:ss.SSS} [%t] %highlight{%-5level}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=bright_blue, DEBUG=green bold, TRACE=black} %C{1}.%M()@%L - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="org.testcontainers" level="INFO"/>
+        <!-- The following logger can be used for containers logs since 1.18.0 -->
+        <Logger name="tc" level="INFO"/>
+        <Logger name="com.github.dockerjava" level="WARN"/>
+        <Logger name="com.github.dockerjava.zerodep.shaded.org.apache.hc.client5.http.wire" level="OFF"/>
+
+        <Logger name="ClassToLog" level="trace" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+<!--        <Root level="trace">-->
+<!--            <AppenderRef ref="Console"/>-->
+<!--        </Root>-->
+    </Loggers>
+</Configuration>
